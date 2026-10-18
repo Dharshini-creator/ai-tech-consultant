@@ -113,6 +113,7 @@ def reject_scope(scope, reason):
     scope["approved"] = False
     scope["review_feedback"] = reason
     return scope
+
 def compare_follow_up_scope(original_scope, follow_up_notes):
     """Merge new follow-up notes and flag additions for human review."""
 
@@ -162,6 +163,12 @@ def compare_follow_up_scope(original_scope, follow_up_notes):
     return {
         "updated_scope": updated_scope,
         "new_items": new_items,
-        "potential_out_of_scope": new_items.copy(),
+        "potential_out_of_scope": [],
         "review_required": bool(new_items),
+        "review_reason": (
+            "New follow-up items need human review to determine "
+            "whether they are in scope."
+            if new_items
+            else None
+        ),
     }
