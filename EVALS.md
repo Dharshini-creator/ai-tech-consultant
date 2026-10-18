@@ -9,7 +9,9 @@
 - Search currently uses keyword matching rather than semantic search.
 
 ## 2. Inbox Agent
-
+- Created a separate evaluation dataset of 20 email cases.
+- Evaluation runner result: 20 passed, 0 failed (100% on this dataset).
+- Detailed results are saved in task2/evals/inbox_results.json.
 - Implemented email priority detection for high-priority and normal emails.
 - Implemented billing, meeting, support, and general categories.
 - Added suggested reply generation.
