@@ -1,210 +1,63 @@
-\# AI Tech Consultant
-
-
-
-\## Project Overview
-
-
-
-AI Tech Consultant is a Python-based project that demonstrates three tools for knowledge retrieval, email analysis, and meeting scope extraction.
-
-
-
-\## Project Tasks
-
-
-
-\### Task 1: Knowledge Brain
-
-
-
-\- Collects 1,537 support articles from Brilliant Directories.
-
-\- Stores article data in JSON format.
-
-\- Provides a FastAPI application with health-check and keyword-search endpoints.
-
-\- API documentation is available at `http://127.0.0.1:8000/docs` when the server is running.
-
-
-
-\### Task 2: Inbox Agent
-
-
-
-\- Identifies high-priority emails using keyword matching.
-
-\- Categorizes emails as billing, meeting, support, or general.
-
-\- Generates suggested replies for human review.
-
-\- Includes automated unit tests.
-
-
-
-\### Task 3: Meeting to Scope
-
-
-
-\- Extracts project requirements from meeting notes.
-
-\- Identifies planned deliverables.
-
-\- Collects open questions and uncertain items.
-
-\- Returns structured JSON output.
-
-\- Includes automated unit tests.
-
-
-
-\## Project Structure
-
-
-
-```text
-
-ai-tech-consultant/
-
-├── task1/
-
-│   ├── app/
-
-│   ├── data/
-
-│   ├── ingestion/
-
-│   └── docs/
-
-├── task2/
-
-│   ├── src/
-
-│   ├── tests/
-
-│   └── docs/
-
-├── task3/
-
-│   ├── agents/
-
-│   ├── app/
-
-│   ├── tests/
-
-│   └── docs/
-
-├── shared-docs/
-
-├── README.md
-
-├── DESIGN.md
-
-├── EVALS.md
-
-└── AI\_LOG.md
-
-```
-
-
-
-\## Running the Components
-
-
-
-\### Knowledge Brain
-
-
-
-From the `task1` directory:
-
-
+﻿# AI Tech Consultant
+
+A Python project with three connected tools for support knowledge search, email analysis, and meeting-to-scope extraction.
+
+## Task 1: Knowledge Brain
+- Stores 1,537 support article records from Brilliant Directories.
+- Provides a FastAPI health check and keyword-based search API.
+- API documentation: http://127.0.0.1:8000/docs
+
+## Task 2: Inbox Agent
+- Classifies sample emails by category and priority.
+- Retrieves related articles from Task 1.
+- Creates reply drafts for human approval, editing, or rejection.
+- Does not send emails automatically.
+
+## Task 3: Meeting to Scope
+- Extracts requirements, deliverables, and open questions from meeting notes.
+- Retrieves related articles from Task 1.
+- Supports human approval, change requests, and rejection.
+
+## Setup
+Install dependencies from the project root:
 
 ```powershell
-
-python -m uvicorn app.main:app --reload
-
+python -m pip install -r requirements.txt
 ```
 
-
-
-\### Inbox Agent
-
-
-
-From the `task2` directory:
-
-
+## Run
+Start the Knowledge Brain:
 
 ```powershell
-
-python .\\src\\inbox\_agent.py
-
+.\run.ps1
 ```
 
-
-
-\### Meeting to Scope
-
-
-
-From the `task3` directory:
-
-
+Run the sample Inbox Agent:
 
 ```powershell
-
-python .\\agents\\scope\_agent.py
-
+python task2\src\inbox_agent.py
 ```
 
-
-
-\## Testing
-
-
-
-Run the Inbox Agent tests from `task2`:
-
-
+Run the sample Meeting-to-Scope Agent:
 
 ```powershell
+python task3\agents\scope_agent.py
+```
 
+## Tests
+Run Task 2 tests:
+
+```powershell
+cd task2
 python -m unittest discover -s tests -v
-
 ```
 
-
-
-Run the Meeting to Scope tests from `task3`:
-
-
+Run Task 3 tests:
 
 ```powershell
-
-python -m unittest discover -s tests -p "test\_scope\_agent.py" -v
-
+cd ..\task3
+python -m unittest discover -s tests -v
 ```
 
-
-
-\## Current Limitations
-
-
-
-\- Email analysis uses sample data and does not connect to a live inbox.
-
-\- Email categorization and meeting scope extraction use keyword-based rules.
-
-\- Suggested replies are drafts and are not sent automatically.
-
-\- Search results are based on keyword frequency rather than semantic similarity.
-
-
-
-\## Conclusion
-
-
-
-This project demonstrates foundational implementations of a knowledge search API, an inbox analysis agent, and a meeting scope extraction tool.
-
+## Current Limitations
+The agents currently use keyword-based rules and templates. The project does not yet provide a live inbox, a complete interactive review interface, or a fully implemented Claude-powered workflow. Search uses keyword frequency rather than semantic similarity.
