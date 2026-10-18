@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge Brain - Article Search</title>
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f3f6fb;
+            color: #1f2937;
+        }
+
+        header {
+            background: #173b70;
+            color: white;
+            padding: 28px 20px;
+            text-align: center;
+        }
+
+        header h1 { margin: 0 0 8px; }
+        header p { margin: 0; }
+
+        main {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 18px;
+        }
+
+        .search-box, .article {
+            background: white;
+            border-radius: 12px;
+            padding: 22px;
+            box-shadow: 0 3px 12px #0000000d;
+        }
+
+        .search-box { margin-bottom: 22px; }
+
+        form {
+            display: flex;
+            gap: 10px;
+        }
+
+        input {
+            flex: 1;
+            min-width: 0;
+            padding: 13px;
+            border: 1px solid #cbd5e1;
+            border-radius: 7px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 13px 22px;
+            border: 0;
+            border-radius: 7px;
+            background: #2563eb;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:disabled { opacity: 0.6; }
+
+        #status { color: #475569; }
+
+        .article {
+            margin-bottom: 14px;
+            overflow-wrap: anywhere;
+        }
+
+        .article h3 { margin-top: 0; }
+
+        .article a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .article a:hover { text-decoration: underline; }
+
+        .score {
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        @media (max-width: 550px) {
+            form { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Knowledge Brain</h1>
+        <p>Search the Brilliant Directories support knowledge base</p>
+    </header>
+
+    <main>
+        <section class="search-box">
+            <h2>Find Support Articles</h2>
+            <form id="searchForm">
+                <input
+                    id="query"
+                    type="search"
+                    placeholder="Try billing, email accounts, or payments"
+                    required
+                >
+                <button id="searchButton" type="submit">Search</button>
+            </form>
+            <p id="status" role="status">Enter a topic to get started.</p>
+        </section>
+
+        <section id="results" aria-live="polite"></section>
+    </main>
+
+    <script>
+        const form = document.getElementById("searchForm");
+        const queryInput = document.getElementById("query");
+        const button = document.getElementById("searchButton");
+        const status = document.getElementById("status");
+        const results = document.getElementById("results");
+
+        form.addEventListener("submit", async function (event) {
+            event.preventDefault();
+
+            const query = queryInput.value.trim();
+            if (!query) return;
+
+            button.disabled = true;
+            status.textContent = "Searching articles...";
+            results.replaceChildren();
+
+            try {
+                const response = await fetch(
+                    "/search?q=" + encodeURIComponent(query) + "&limit=10"
+                );
+
+                if (!response.ok) {
+                    throw new Error("Search request failed: " + response.status);
+                }
+
+                const data = await response.json();
+
+                status.textContent =
+                    "Found " + data.total_results + " matching articles. Showing " +
+                    data.results.length + ".";
+
+                if (data.results.length === 0) {
+                    results.textContent = "No matching articles found. Try another keyword.";
+                    return;
+                }
+
+                data.results.forEach(function (item) {
+                    const card = document.createElement("article");
+                    card.className = "article";
+
+                    const title = document.createElement("h3");
+                    title.textContent = item.title;
+
+                    const link = document.createElement("a");
+                    link.href = item.url;
+                    link.target = "_blank";
+                    link.rel = "noopener noreferrer";
+                    link.textContent = "Open original support article";
+
+                    const snippet = document.createElement("p");
+                    snippet.textContent = item.snippet;
+
+                    const score = document.createElement("p");
+                    score.className = "score";
+                    score.textContent = "Relevance score: " + item.score;
+
+                    card.append(title, snippet, link, score);
+                    results.appendChild(card);
+                });
+            } catch (error) {
+                status.textContent =
+                    "Unable to search. Make sure the Knowledge Brain server is running.";
+                console.error(error);
+            } finally {
+                button.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
