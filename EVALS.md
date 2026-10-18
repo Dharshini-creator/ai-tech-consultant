@@ -1,4 +1,4 @@
-# AI Tech Consultant — Evaluation Results
+﻿# AI Tech Consultant â€” Evaluation Results
 
 ## 1. Knowledge Brain
 
@@ -13,14 +13,14 @@
 - Implemented email priority detection for high-priority and normal emails.
 - Implemented billing, meeting, support, and general categories.
 - Added suggested reply generation.
-- Ran the automated unit tests: 6 tests passed locally.
+- Ran the automated unit tests: 10 tests passed locally.
 - The agent analyzes sample email dictionaries and does not connect to or send messages through a real inbox.
 - Reply generation currently uses rules and templates rather than Claude.
 
 ## 3. Meeting to Scope
 
 - Implemented extraction of requirements, deliverables, and open questions from meeting notes.
-- Ran the automated unit tests: 6 tests passed locally.
+- Ran the automated unit tests: 10 tests passed locally.
 - The implementation uses keyword rules and may miss or misclassify statements with ambiguous wording.
 - Automatic scope revision, long-transcript evaluation, and proposal quality have not yet been fully evaluated.
 
@@ -40,4 +40,5 @@ These tests demonstrate basic functionality, not production readiness. Search re
 - Evaluate human review workflows and failure cases.
 
 No Claude model comparison results are claimed because an Anthropic API key is not currently configured.
+
 
