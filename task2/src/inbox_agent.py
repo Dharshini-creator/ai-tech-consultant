@@ -59,6 +59,8 @@ def analyze_email(email):
     return {
         "subject": subject,
         "sender": email.get("sender", "Unknown"),
+         "review_status": "pending",
+        "approved": False,
         "priority": priority,
         "category": category,
         "knowledge_articles": knowledge_articles,
@@ -78,3 +80,25 @@ if __name__ == "__main__":
     }
 
     print(analyze_email(sample_email))
+    
+def approve_reply(result):
+    """Approve a draft after a human reviews it."""
+    result["review_status"] = "approved"
+    result["approved"] = True
+    return result
+
+
+def edit_reply(result, new_reply):
+    """Save a human-edited draft for review."""
+    result["suggested_reply"] = new_reply
+    result["review_status"] = "pending"
+    result["approved"] = False
+    return result
+
+
+def reject_reply(result):
+    """Reject a draft so it is not approved for sending."""
+    result["review_status"] = "rejected"
+    result["approved"] = False
+    return result
+
