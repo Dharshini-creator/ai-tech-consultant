@@ -73,5 +73,43 @@ class TestInboxAgent(unittest.TestCase):
         self.assertEqual(result["review_status"], "rejected")
         self.assertFalse(result["approved"])
 
+    
+    def test_refund_email_is_billing(self):
+        email = {
+            "sender": "customer@example.com",
+            "subject": "Refund request",
+            "body": "I would like a refund for my last payment.",
+        }
+        result = analyze_email(email)
+        self.assertEqual(result["category"], "billing")
+
+    def test_deadline_email_is_high_priority(self):
+        email = {
+            "sender": "customer@example.com",
+            "subject": "Project deadline",
+            "body": "We need an answer before the deadline.",
+        }
+        result = analyze_email(email)
+        self.assertEqual(result["priority"], "high")
+
+    def test_support_error_email(self):
+        email = {
+            "sender": "customer@example.com",
+            "subject": "Website error",
+            "body": "I get an error when opening the page.",
+        }
+        result = analyze_email(email)
+        self.assertEqual(result["category"], "support")
+
+    def test_new_draft_starts_pending(self):
+        email = {
+            "sender": "customer@example.com",
+            "subject": "Product information",
+            "body": "Please send me more information.",
+        }
+        result = analyze_email(email)
+        self.assertEqual(result["review_status"], "pending")
+        self.assertFalse(result["approved"])
+
 if __name__ == "__main__":
     unittest.main()
