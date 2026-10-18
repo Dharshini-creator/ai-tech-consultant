@@ -1,0 +1,122 @@
+﻿[
+  {
+    "id": "IN01",
+    "email": {"sender": "a@example.com", "subject": "Urgent invoice", "body": "Please review this invoice."},
+    "expected_priority": "high",
+    "expected_category": "billing"
+  },
+  {
+    "id": "IN02",
+    "email": {"sender": "b@example.com", "subject": "Payment question", "body": "I need help understanding my payment."},
+    "expected_priority": "normal",
+    "expected_category": "billing"
+  },
+  {
+    "id": "IN03",
+    "email": {"sender": "c@example.com", "subject": "Refund request", "body": "Could you check my refund?"},
+    "expected_priority": "normal",
+    "expected_category": "billing"
+  },
+  {
+    "id": "IN04",
+    "email": {"sender": "d@example.com", "subject": "Billing deadline", "body": "Please review this today."},
+    "expected_priority": "high",
+    "expected_category": "billing"
+  },
+  {
+    "id": "IN05",
+    "email": {"sender": "e@example.com", "subject": "Schedule a meeting", "body": "Please arrange a meeting next week."},
+    "expected_priority": "normal",
+    "expected_category": "meeting"
+  },
+  {
+    "id": "IN06",
+    "email": {"sender": "f@example.com", "subject": "Urgent calendar update", "body": "Please update the calendar."},
+    "expected_priority": "high",
+    "expected_category": "meeting"
+  },
+  {
+    "id": "IN07",
+    "email": {"sender": "g@example.com", "subject": "Meeting time", "body": "Can we schedule a time to talk?"},
+    "expected_priority": "normal",
+    "expected_category": "meeting"
+  },
+  {
+    "id": "IN08",
+    "email": {"sender": "h@example.com", "subject": "Deadline for meeting", "body": "Please confirm the schedule."},
+    "expected_priority": "high",
+    "expected_category": "meeting"
+  },
+  {
+    "id": "IN09",
+    "email": {"sender": "i@example.com", "subject": "Error message", "body": "I see an error when opening the page."},
+    "expected_priority": "normal",
+    "expected_category": "support"
+  },
+  {
+    "id": "IN10",
+    "email": {"sender": "j@example.com", "subject": "Urgent issue", "body": "Please help fix this issue immediately."},
+    "expected_priority": "high",
+    "expected_category": "support"
+  },
+  {
+    "id": "IN11",
+    "email": {"sender": "k@example.com", "subject": "Login problem", "body": "I have a problem accessing my account."},
+    "expected_priority": "normal",
+    "expected_category": "support"
+  },
+  {
+    "id": "IN12",
+    "email": {"sender": "l@example.com", "subject": "ASAP: Website error", "body": "The page shows an error."},
+    "expected_priority": "high",
+    "expected_category": "support"
+  },
+  {
+    "id": "IN13",
+    "email": {"sender": "m@example.com", "subject": "Thank you", "body": "Thank you for your assistance."},
+    "expected_priority": "normal",
+    "expected_category": "general"
+  },
+  {
+    "id": "IN14",
+    "email": {"sender": "n@example.com", "subject": "Product feedback", "body": "I wanted to share a suggestion."},
+    "expected_priority": "normal",
+    "expected_category": "general"
+  },
+  {
+    "id": "IN15",
+    "email": {"sender": "o@example.com", "subject": "Company news", "body": "Here is a short announcement."},
+    "expected_priority": "normal",
+    "expected_category": "general"
+  },
+  {
+    "id": "IN16",
+    "email": {"sender": "p@example.com", "subject": "ASAP: General update", "body": "Please read this announcement."},
+    "expected_priority": "high",
+    "expected_category": "general"
+  },
+  {
+    "id": "IN17",
+    "email": {"sender": "q@example.com", "subject": "Invoice meeting", "body": "Please discuss the invoice in our meeting."},
+    "expected_priority": "normal",
+    "expected_category": "billing"
+  },
+  {
+    "id": "IN18",
+    "email": {"sender": "r@example.com", "subject": "Payment error", "body": "There is an error with my payment."},
+    "expected_priority": "normal",
+    "expected_category": "billing"
+  },
+  {
+    "id": "IN19",
+    "email": {"sender": "s@example.com", "subject": "Meeting problem", "body": "There is a problem with the meeting schedule."},
+    "expected_priority": "normal",
+    "expected_category": "meeting"
+  },
+  {
+    "id": "IN20",
+    "email": {"sender": "t@example.com", "subject": "Urgent support deadline", "body": "Please help with this issue ASAP."},
+    "expected_priority": "high",
+    "expected_category": "support"
+  }
+]

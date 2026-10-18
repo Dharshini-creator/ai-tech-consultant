@@ -1,0 +1,222 @@
+[
+  {
+    "id": "IN01",
+    "expected_priority": "high",
+    "actual_priority": "high",
+    "priority_pass": true,
+    "expected_category": "billing",
+    "actual_category": "billing",
+    "category_pass": true,
+    "review_pass": true,
+    "passed": true
+  },
+  {
+    "id": "IN02",
+    "expected_priority": "normal",
+    "actual_priority": "normal",
+    "priority_pass": true,
+    "expected_category": "billing",
+    "actual_category": "billing",
+    "category_pass": true,
+    "review_pass": true,
+    "passed": true
+  },
+  {
+    "id": "IN03",
+    "expected_priority": "normal",
+    "actual_priority": "normal",
+    "priority_pass": true,
+    "expected_category": "billing",
+    "actual_category": "billing",
+    "category_pass": true,
+    "review_pass": true,
+    "passed": true
+  },
+  {
+    "id": "IN04",
+    "expected_priority": "high",
+    "actual_priority": "high",
+    "priority_pass": true,
+    "expected_category": "billing",
+    "actual_category": "billing",
+    "category_pass": true,
+    "review_pass": true,
+    "passed": true
+  },
+  {
+    "id": "IN05",
+    "expected_priority": "normal",
+    "actual_priority": "normal",
+    "priority_pass": true,
+    "expected_category": "meeting",
+    "actual_category": "meeting",
+    "category_pass": true,
+    "review_pass": true,
+    "passed": true
+  },
+  {
+    "id": "IN06",
+    "expected_priority": "high",
+    "actual_priority": "high",
+    "priority_pass": true,
+    "expected_category": "meeting",
+    "actual_category": "meeting",
+    "category_pass": true,
+    "review_pass": true,
+    "passed": true
+  },
+  {
+    "id": "IN07",
+    "expected_priority": "normal",
+    "actual_priority": "normal",
+    "priority_pass": true,
+    "expected_category": "meeting",
+    "actual_category": "meeting",
+    "category_pass": true,
+    "review_pass": true,
+    "passed": true
+  },
+  {
+    "id": "IN08",
+    "expected_priority": "high",
+    "actual_priority": "high",
+    "priority_pass": true,
+    "expected_category": "meeting",
+    "actual_category": "meeting",
+    "category_pass": true,
+    "review_pass": true,
+    "passed": true
+  },
+  {
+    "id": "IN09",
+    "expected_priority": "normal",
+    "actual_priority": "normal",
+    "priority_pass": true,
+    "expected_category": "support",
+    "actual_category": "support",
+    "category_pass": true,
+    "review_pass": true,
+    "passed": true
+  },
+  {
+    "id": "IN10",
+    "expected_priority": "high",
+    "actual_priority": "high",
+    "priority_pass": true,
+    "expected_category": "support",
+    "actual_category": "support",
+    "category_pass": true,
+    "review_pass": true,
+    "passed": true
+  },
+  {
+    "id": "IN11",
+    "expected_priority": "normal",
+    "actual_priority": "normal",
+    "priority_pass": true,
+    "expected_category": "support",
+    "actual_category": "support",
+    "category_pass": true,
+    "review_pass": true,
+    "passed": true
+  },
+  {
+    "id": "IN12",
+    "expected_priority": "high",
+    "actual_priority": "high",
+    "priority_pass": true,
+    "expected_category": "support",
+    "actual_category": "support",
+    "category_pass": true,
+    "review_pass": true,
+    "passed": true
+  },
+  {
+    "id": "IN13",
+    "expected_priority": "normal",
+    "actual_priority": "normal",
+    "priority_pass": true,
+    "expected_category": "general",
+    "actual_category": "general",
+    "category_pass": true,
+    "review_pass": true,
+    "passed": true
+  },
+  {
+    "id": "IN14",
+    "expected_priority": "normal",
+    "actual_priority": "normal",
+    "priority_pass": true,
+    "expected_category": "general",
+    "actual_category": "general",
+    "category_pass": true,
+    "review_pass": true,
+    "passed": true
+  },
+  {
+    "id": "IN15",
+    "expected_priority": "normal",
+    "actual_priority": "normal",
+    "priority_pass": true,
+    "expected_category": "general",
+    "actual_category": "general",
+    "category_pass": true,
+    "review_pass": true,
+    "passed": true
+  },
+  {
+    "id": "IN16",
+    "expected_priority": "high",
+    "actual_priority": "high",
+    "priority_pass": true,
+    "expected_category": "general",
+    "actual_category": "general",
+    "category_pass": true,
+    "review_pass": true,
+    "passed": true
+  },
+  {
+    "id": "IN17",
+    "expected_priority": "normal",
+    "actual_priority": "normal",
+    "priority_pass": true,
+    "expected_category": "billing",
+    "actual_category": "billing",
+    "category_pass": true,
+    "review_pass": true,
+    "passed": true
+  },
+  {
+    "id": "IN18",
+    "expected_priority": "normal",
+    "actual_priority": "normal",
+    "priority_pass": true,
+    "expected_category": "billing",
+    "actual_category": "billing",
+    "category_pass": true,
+    "review_pass": true,
+    "passed": true
+  },
+  {
+    "id": "IN19",
+    "expected_priority": "normal",
+    "actual_priority": "normal",
+    "priority_pass": true,
+    "expected_category": "meeting",
+    "actual_category": "meeting",
+    "category_pass": true,
+    "review_pass": true,
+    "passed": true
+  },
+  {
+    "id": "IN20",
+    "expected_priority": "high",
+    "actual_priority": "high",
+    "priority_pass": true,
+    "expected_category": "support",
+    "actual_category": "support",
+    "category_pass": true,
+    "review_pass": true,
+    "passed": true
+  }
+]
