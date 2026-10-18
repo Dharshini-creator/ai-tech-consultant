@@ -1,8 +1,8 @@
-\# AI Tech Consultant — System Design
+# AI Tech Consultant - System Design
 
 
 
-\## 1. Architecture Overview
+## 1. Architecture Overview
 
 
 
@@ -10,19 +10,19 @@ The project consists of three independent components:
 
 
 
-1\. Knowledge Brain — collects and searches support articles.
+1\. Knowledge Brain - collects and searches support articles.
 
-2\. Inbox Agent — analyzes emails and suggests replies.
+2\. Inbox Agent - analyzes emails and suggests replies.
 
-3\. Meeting to Scope — converts meeting notes into structured project scope information.
-
-
-
-\## 2. Task 1: Knowledge Brain
+3\. Meeting to Scope - converts meeting notes into structured project scope information.
 
 
 
-\### Data Ingestion
+## 2. Task 1: Knowledge Brain
+
+
+
+### Data Ingestion
 
 
 
@@ -30,7 +30,7 @@ The ingestion pipeline retrieves article URLs from the Brilliant Directories sup
 
 
 
-\### Storage
+### Storage
 
 
 
@@ -38,7 +38,7 @@ Article data is stored in `task1/data/articles.json`. Each record contains a tit
 
 
 
-\### API
+### API
 
 
 
@@ -46,11 +46,11 @@ FastAPI exposes three endpoints:
 
 
 
-\- `GET /` — welcome message and application status.
+- `GET /` - welcome message and application status.
 
-\- `GET /health` — health status.
+- `GET /health` - health status.
 
-\- `GET /search?q=...\&limit=...` — keyword-based article search.
+- `GET /search?q=...\&limit=...` - keyword-based article search.
 
 
 
@@ -58,7 +58,7 @@ The search endpoint counts keyword occurrences in article titles and content, so
 
 
 
-\## 3. Task 2: Inbox Agent
+## 3. Task 2: Inbox Agent
 
 
 
@@ -88,7 +88,7 @@ The current implementation uses predefined keyword rules and sample email data.
 
 
 
-\## 4. Task 3: Meeting to Scope
+## 4. Task 3: Meeting to Scope
 
 
 
@@ -116,49 +116,48 @@ The current implementation uses keyword matching and simple text rules.
 
 
 
-\## 5. Error Handling and Reliability
+## 5. Error Handling and Reliability
 
 
 
-\- The Knowledge Brain API returns an error if its knowledge data is unavailable.
+- The Knowledge Brain API returns an error if its knowledge data is unavailable.
 
-\- The ingestion pipeline saves progress to support recovery after interruptions.
+- The ingestion pipeline saves progress to support recovery after interruptions.
 
-\- Automated unit tests check important Inbox Agent and Meeting to Scope behaviors.
+- Automated unit tests check important Inbox Agent and Meeting to Scope behaviors.
 
-\- API health checks help verify that the Knowledge Brain is running.
-
-
-
-\## 6. Security and Limitations
+- API health checks help verify that the Knowledge Brain is running.
 
 
 
-\- The current components are prototypes and are not configured for production deployment.
-
-\- The email agent does not connect to or send messages through a real inbox.
-
-\- Keyword matching can misclassify ambiguous text.
-
-\- The search system does not yet use embeddings or semantic retrieval.
-
-\- Sensitive email information should not be logged or shared unnecessarily.
+## 6. Security and Limitations
 
 
 
-\## 7. Future Improvements
+- The current components are prototypes and are not configured for production deployment.
+
+- The email agent does not connect to or send messages through a real inbox.
+
+- Keyword matching can misclassify ambiguous text.
+
+- The search system does not yet use embeddings or semantic retrieval.
+
+- Sensitive email information should not be logged or shared unnecessarily.
 
 
 
-\- Add semantic search and relevance evaluation.
+## 7. Future Improvements
 
-\- Integrate an authorized email provider.
 
-\- Add human approval before sending any reply.
 
-\- Improve requirements extraction with an AI language model.
+- Add semantic search and relevance evaluation.
 
-\- Add broader automated tests and structured logging.
+- Integrate an authorized email provider.
 
-\- Provide a web interface for users.
+- Add human approval before sending any reply.
 
+- Improve requirements extraction with an AI language model.
+
+- Add broader automated tests and structured logging.
+
+- Provide a web interface for users.

@@ -1,4 +1,4 @@
-﻿# AI Tech Consultant
+# AI Tech Consultant
 
 A Python project with three connected tools for support knowledge search, email analysis, and meeting-to-scope extraction.
 
