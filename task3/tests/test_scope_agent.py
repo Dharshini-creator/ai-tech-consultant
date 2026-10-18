@@ -8,6 +8,7 @@ from agents.scope_agent import (
     approve_scope,
     request_scope_changes,
     reject_scope,
+compare_follow_up_scope,
 )
 class TestScopeAgent(unittest.TestCase):
 
@@ -106,6 +107,41 @@ class TestScopeAgent(unittest.TestCase):
         self.assertIn("deliverables", result)
         self.assertIn("open_questions", result)
         self.assertIn("all_notes", result)
+    def test_follow_up_adds_new_deliverable(self):
+        original = create_scope(
+            "The system must support mobile devices.\n"
+            "Build a customer dashboard."
+        )
+
+        result = compare_follow_up_scope(
+            original,
+            "Create a payment page."
+        )
+
+        updated = result["updated_scope"]
+
+        self.assertIn(
+            "Create a payment page.",
+            updated["deliverables"]
+        )
+        self.assertIn(
+            "Create a payment page.",
+            result["potential_out_of_scope"]
+        )
+        self.assertTrue(result["review_required"])
+
+    def test_follow_up_with_no_new_items(self):
+        original = create_scope(
+            "The system must support mobile devices."
+        )
+
+        result = compare_follow_up_scope(
+            original,
+            "The system must support mobile devices."
+        )
+
+        self.assertEqual(result["new_items"], [])
+        self.assertFalse(result["review_required"])
 
 if __name__ == "__main__":
     unittest.main()

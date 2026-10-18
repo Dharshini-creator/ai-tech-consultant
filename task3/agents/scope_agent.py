@@ -113,3 +113,55 @@ def reject_scope(scope, reason):
     scope["approved"] = False
     scope["review_feedback"] = reason
     return scope
+def compare_follow_up_scope(original_scope, follow_up_notes):
+    """Merge new follow-up notes and flag additions for human review."""
+
+    follow_up_scope = create_scope(follow_up_notes)
+
+    updated_scope = dict(original_scope)
+    for key in (
+        "requirements",
+        "deliverables",
+        "open_questions",
+        "all_notes",
+        "knowledge_articles",
+    ):
+        updated_scope[key] = list(original_scope.get(key, []))
+
+    existing_notes = {
+        note.strip().lower()
+        for note in original_scope.get("all_notes", [])
+    }
+
+    new_items = [
+        note for note in follow_up_scope["all_notes"]
+        if note.strip().lower() not in existing_notes
+    ]
+
+    categories = {
+        "requirements": follow_up_scope["requirements"],
+        "deliverables": follow_up_scope["deliverables"],
+        "open_questions": follow_up_scope["open_questions"],
+    }
+
+    for category, items in categories.items():
+        for item in items:
+            if item in new_items and item not in updated_scope[category]:
+                updated_scope[category].append(item)
+
+    for item in new_items:
+        if item not in updated_scope["all_notes"]:
+            updated_scope["all_notes"].append(item)
+
+    updated_scope["summary"] = (
+        f"Scope contains {len(updated_scope['requirements'])} requirements, "
+        f"{len(updated_scope['deliverables'])} deliverables, and "
+        f"{len(updated_scope['open_questions'])} open questions."
+    )
+
+    return {
+        "updated_scope": updated_scope,
+        "new_items": new_items,
+        "potential_out_of_scope": new_items.copy(),
+        "review_required": bool(new_items),
+    }
