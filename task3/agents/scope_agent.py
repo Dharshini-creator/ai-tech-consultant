@@ -1,6 +1,31 @@
 
 import re
+import os
+import requests
 
+def search_knowledge_brain(query):
+    """Find relevant help articles using Task 1."""
+    api_url = os.getenv(
+        "KNOWLEDGE_BRAIN_URL",
+        "http://127.0.0.1:8000"
+    )
+
+    try:
+        response = requests.get(
+            f"{api_url}/search",
+            params={"q": query, "limit": 5},
+            timeout=5,
+        )
+        response.raise_for_status()
+        data = response.json()
+
+        if isinstance(data, list):
+            return data
+
+        return data.get("results", data.get("articles", []))
+
+    except (requests.RequestException, ValueError):
+        return []
 
 def create_scope(meeting_notes):
     """Convert meeting notes into a structured project scope."""
@@ -14,6 +39,7 @@ def create_scope(meeting_notes):
     requirements = []
     deliverables = []
     questions = []
+    knowledge_articles = search_knowledge_brain(meeting_notes)
 
     requirement_words = [
         "must", "need", "needs", "require", "required",
@@ -50,6 +76,7 @@ def create_scope(meeting_notes):
         "deliverables": deliverables,
         "open_questions": questions,
         "all_notes": lines,
+        "knowledge_articles": knowledge_articles,
     }
 
 

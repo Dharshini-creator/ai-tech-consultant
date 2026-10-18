@@ -1,7 +1,31 @@
 
 from datetime import datetime
+import os
+import requests
 
+def search_knowledge_brain(query):
+    """Search Task 1 for helpful articles related to an email."""
+    api_url = os.getenv(
+        "KNOWLEDGE_BRAIN_URL",
+        "http://127.0.0.1:8000"
+    )
 
+    try:
+        response = requests.get(
+            f"{api_url}/search",
+            params={"q": query, "limit": 5},
+            timeout=5,
+        )
+        response.raise_for_status()
+        data = response.json()
+
+        if isinstance(data, list):
+            return data
+
+        return data.get("results", data.get("articles", []))
+
+    except (requests.RequestException, ValueError):
+        return []
 def analyze_email(email):
     """Analyze an email and suggest its priority and category."""
 
@@ -28,11 +52,16 @@ def analyze_email(email):
             category = name
             break
 
+    knowledge_articles = search_knowledge_brain(
+         f"{subject} {body}"
+    )
+
     return {
         "subject": subject,
         "sender": email.get("sender", "Unknown"),
         "priority": priority,
         "category": category,
+        "knowledge_articles": knowledge_articles,
         "analyzed_at": datetime.now().isoformat(timespec="seconds"),
         "suggested_reply": (
             f"Hello, thank you for your email about '{subject}'. "
