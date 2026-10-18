@@ -1,0 +1,142 @@
+﻿[
+  {
+    "id": "SC01",
+    "meeting_notes": "The portal must support mobile devices.\nBuild a customer dashboard.\nConfirm which users can access reports?",
+    "expected_requirements": 1,
+    "expected_deliverables": 1,
+    "expected_open_questions": 1
+  },
+  {
+    "id": "SC02",
+    "meeting_notes": "The system should load quickly.\nCreate a weekly reporting feature.\nThe launch date is unknown.",
+    "expected_requirements": 1,
+    "expected_deliverables": 1,
+    "expected_open_questions": 1
+  },
+  {
+    "id": "SC03",
+    "meeting_notes": "Users need secure login.\nDevelop a password reset page.\nDecide the session timeout.",
+    "expected_requirements": 1,
+    "expected_deliverables": 1,
+    "expected_open_questions": 1
+  },
+  {
+    "id": "SC04",
+    "meeting_notes": "The app must support two languages.\nDesign an onboarding screen.\nThe data migration plan is TBD.",
+    "expected_requirements": 1,
+    "expected_deliverables": 1,
+    "expected_open_questions": 1
+  },
+  {
+    "id": "SC05",
+    "meeting_notes": "The service shall store audit logs.\nImplement an export feature.\nConfirm the retention period.",
+    "expected_requirements": 1,
+    "expected_deliverables": 1,
+    "expected_open_questions": 1
+  },
+  {
+    "id": "SC06",
+    "meeting_notes": "The dashboard needs a search filter.\nBuild a search interface.\nWhich fields should be searchable?",
+    "expected_requirements": 1,
+    "expected_deliverables": 1,
+    "expected_open_questions": 1
+  },
+  {
+    "id": "SC07",
+    "meeting_notes": "The report must support PDF downloads.\nCreate a PDF export tool.\nThe final file format is unclear.",
+    "expected_requirements": 1,
+    "expected_deliverables": 1,
+    "expected_open_questions": 1
+  },
+  {
+    "id": "SC08",
+    "meeting_notes": "The site should meet accessibility needs.\nDesign accessible navigation.\nDecide which accessibility standard to follow.",
+    "expected_requirements": 1,
+    "expected_deliverables": 1,
+    "expected_open_questions": 1
+  },
+  {
+    "id": "SC09",
+    "meeting_notes": "The platform must support 500 users.\nDevelop a load testing script.\nThe peak traffic target is not sure yet.",
+    "expected_requirements": 1,
+    "expected_deliverables": 1,
+    "expected_open_questions": 1
+  },
+  {
+    "id": "SC10",
+    "meeting_notes": "The app needs email notifications.\nImplement notification settings.\nConfirm the email provider.",
+    "expected_requirements": 1,
+    "expected_deliverables": 1,
+    "expected_open_questions": 1
+  },
+  {
+    "id": "SC11",
+    "meeting_notes": "The system must record failed logins.\nCreate an admin audit page.\nHow long should logs be kept?",
+    "expected_requirements": 1,
+    "expected_deliverables": 1,
+    "expected_open_questions": 1
+  },
+  {
+    "id": "SC12",
+    "meeting_notes": "The checkout should show shipping costs.\nBuild a checkout summary.\nThe tax calculation rules are unclear.",
+    "expected_requirements": 1,
+    "expected_deliverables": 1,
+    "expected_open_questions": 1
+  },
+  {
+    "id": "SC13",
+    "meeting_notes": "The service must support backups.\nCreate a backup status page.\nDecide the backup schedule.",
+    "expected_requirements": 1,
+    "expected_deliverables": 1,
+    "expected_open_questions": 1
+  },
+  {
+    "id": "SC14",
+    "meeting_notes": "The search should return relevant results.\nDevelop a search results page.\nWhich ranking method will be used?",
+    "expected_requirements": 1,
+    "expected_deliverables": 1,
+    "expected_open_questions": 1
+  },
+  {
+    "id": "SC15",
+    "meeting_notes": "The customer needs order history.\nDesign an order history screen.\nConfirm how many months to display.",
+    "expected_requirements": 1,
+    "expected_deliverables": 1,
+    "expected_open_questions": 1
+  },
+  {
+    "id": "SC16",
+    "meeting_notes": "The API must validate incoming data.\nImplement request validation.\nThe error response format is TBD.",
+    "expected_requirements": 1,
+    "expected_deliverables": 1,
+    "expected_open_questions": 1
+  },
+  {
+    "id": "SC17",
+    "meeting_notes": "The admin needs a user activity summary.\nBuild an activity report.\nShould the report include archived users?",
+    "expected_requirements": 1,
+    "expected_deliverables": 1,
+    "expected_open_questions": 1
+  },
+  {
+    "id": "SC18",
+    "meeting_notes": "The mobile app must cache recent content.\nDevelop offline support.\nDecide how long cached data remains.",
+    "expected_requirements": 1,
+    "expected_deliverables": 1,
+    "expected_open_questions": 1
+  },
+  {
+    "id": "SC19",
+    "meeting_notes": "The system should send a reminder before expiry.\nCreate a reminder email template.\nThe reminder timing is unknown.",
+    "expected_requirements": 1,
+    "expected_deliverables": 1,
+    "expected_open_questions": 1
+  },
+  {
+    "id": "SC20",
+    "meeting_notes": "The application must protect customer information.\nDesign a privacy settings page.\nConfirm who can change these settings.",
+    "expected_requirements": 1,
+    "expected_deliverables": 1,
+    "expected_open_questions": 1
+  }
+]

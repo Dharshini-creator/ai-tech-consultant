@@ -43,4 +43,13 @@ These tests demonstrate basic functionality, not production readiness. Search re
 
 No Claude model comparison results are claimed because an Anthropic API key is not currently configured.
 
+## Task 3: Meeting-to-Scope Evaluation
 
+- Evaluation cases: 20
+- Passed: 20
+- Failed: 0
+- Pass rate: 100%
+
+The evaluation checked whether the prototype extracted the expected counts of requirements, deliverables, and open questions from 20 sample meeting notes. Detailed results are saved in `task3/evals/scope_results.json`.
+
+**Limitation:** This evaluation measures category counts, not the semantic accuracy of every extracted item. Follow-up transcript handling and out-of-scope change detection still need separate evaluation.
