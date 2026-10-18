@@ -91,3 +91,25 @@ if __name__ == "__main__":
 
     import json
     print(json.dumps(create_scope(sample_notes), indent=2))
+
+def approve_scope(scope):
+    """Approve a generated scope after human review."""
+    scope["review_status"] = "approved"
+    scope["approved"] = True
+    return scope
+
+
+def request_scope_changes(scope, feedback):
+    """Record human feedback and return the scope for revision."""
+    scope["review_status"] = "changes_requested"
+    scope["approved"] = False
+    scope["review_feedback"] = feedback
+    return scope
+
+
+def reject_scope(scope, reason):
+    """Reject a generated scope."""
+    scope["review_status"] = "rejected"
+    scope["approved"] = False
+    scope["review_feedback"] = reason
+    return scope
